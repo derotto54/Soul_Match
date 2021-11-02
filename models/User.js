@@ -34,7 +34,11 @@ User.init(
       unique: true,
       validate: {
         isEmail: true,
-      },
+      },  
+    },
+    birthday: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     password: {
       type: DataTypes.STRING,
