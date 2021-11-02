@@ -2,51 +2,46 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class User extends Model {
+
+class Homebody extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
-User.init(
+Homebody.init(
   {
-    id: {
+    user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },  
-    },
-    birthday: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [8],
+      references: {
+          model: 'user',
+          key: 'id',
       },
+    },
+    binge: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    cook: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    diy: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    read: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+    },
+    garden: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
     },
   },
   {
     hooks: {
-      beforeCreate: async (newUserData) => {
+    beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
@@ -55,8 +50,8 @@ User.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'homebody',
   }
 );
 
-module.exports = User;
+module.exports = Homebody;
