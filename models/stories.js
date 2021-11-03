@@ -15,14 +15,15 @@ Stories.init(
           key: 'id',
       },
     },
-     myStory {
-      type:(DataTypes.STRING,
+     myStory: {
+      type:DataTypes.STRING,
       allowNull: false,
     },
      Information:{
-      type: (DataTypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
+  },  
   {
     sequelize,
     timestamps: false,
@@ -32,4 +33,4 @@ Stories.init(
   }
 );
 
-module.exports = Storie;
+module.exports = Stories;
