@@ -36,10 +36,6 @@ User.init(
         isEmail: true,
       },  
     },
-    birthday: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -47,6 +43,9 @@ User.init(
         len: [8],
       },
     },
+    image: {
+      type: DataTypes.STRING,
+    }
   },
   {
     hooks: {
