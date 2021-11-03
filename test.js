@@ -12,6 +12,7 @@ for (var i = 0; i < 10; i++) {
         email: faker.internet.email(),
         password: faker.internet.password(),
         birthday: faker.date.past(),
+        image: faker.internet.avatar()
     };
 
     users.push (fakee)
