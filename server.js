@@ -1,4 +1,4 @@
-const path = require('path');
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
@@ -23,6 +23,7 @@ const sess = {
   })
 };
 
+//middleware
 app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
@@ -32,6 +33,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, 'public')));
 
+
 //HTML routes
 app.get('/',(req,res) =>res.render('index'))
 app.get('/name',(req,res) =>res.render('name'))
@@ -39,7 +41,38 @@ app.get('/birthday',(req,res) =>res.render('birthday'))
 app.get('/setupacc',(req,res) =>res.render('setupAcc'))
 app.get('/questions',(req,res) =>res.render('questions'))
 app.get('/categories',(req,res) =>res.render('categories'))
+app.get('/stories',(req,res) =>res.render('stories'))
 
+const categoryHobbies = [
+  {
+    name: "extrovert",
+    hobbies: [
+      {
+        name: "Coffee"
+      },
+      {
+        name: "Concert"
+      }
+    ]
+  },
+  {
+    name: "Computer Geek",
+    hobbies: [
+      {
+        name: "Gaming"
+      },
+      {
+        name: "Blogging"
+      }
+    ]
+  }
+];
+
+app.get('/categories/:name',(req,res) => {
+  const foundCategory= categoryHobbies.find(category =>category.name === req.params.name)
+
+  res.render('hobbies', {hobbies: foundCategory.hobbies})
+})
 
 app.use(routes);
 
