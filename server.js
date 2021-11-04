@@ -38,6 +38,9 @@ app.get('/name',(req,res) =>res.render('name'))
 app.get('/birthday',(req,res) =>res.render('birthday'))
 app.get('/setupacc',(req,res) =>res.render('setupAcc'))
 app.get('/questions',(req,res) =>res.render('questions'))
+app.get('/categories',(req,res) =>res.render('categories'))
+
+
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
