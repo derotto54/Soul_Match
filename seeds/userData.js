@@ -1,8 +1,9 @@
 const faker = require("faker");
+// const { Hobby } = require("../models");
 
 const users = [];
 
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 10; i++) {  
     const fakee = {
         first_name: faker.name.firstName(),
         last_name: faker.name.lastName(),
@@ -10,9 +11,8 @@ for (var i = 0; i < 10; i++) {
         password: faker.internet.password(),
         birthday: faker.date.past(),
         image: faker.internet.avatar()
-    };
-
+    }
     users.push (fakee)
-}
+} 
 
 module.exports = users
