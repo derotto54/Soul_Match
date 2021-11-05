@@ -1,4 +1,4 @@
-const path = require('path');
+require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
@@ -23,6 +23,7 @@ const sess = {
   })
 };
 
+//middleware
 app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
@@ -32,12 +33,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use(express.static(path.join(__dirname, 'public')));
 
-//HTML routes
-app.get('/',(req,res) =>res.render('index'))
-app.get('/name',(req,res) =>res.render('name'))
-app.get('/birthday',(req,res) =>res.render('birthday'))
-app.get('/setupacc',(req,res) =>res.render('setupAcc'))
-app.get('/questions',(req,res) =>res.render('questions'))
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {

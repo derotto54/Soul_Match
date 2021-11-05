@@ -23,6 +23,8 @@
     "mongoose": "^6.0.12",
     "mysql2": "^2.2.5",
     "nodemon": "^2.0.14",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "sequelize-serialize": "^1.2.0",
+    "slugify": "^1.6.1"
   }
 }
