@@ -1,6 +1,12 @@
-Test
-<ul>
-  {{#each hobbies}}
-    <li>{{ name }}</li>
-  {{/each}}
-</ul>
+<div>
+  <p class="fw-bold fs-2 mb-3">{{category.name}}</p>
+</div>
+<div class="row row-cols-3 d-flex flex-column flex-md-row justify-content-md-center align-items-center">
+  <ul>
+    {{#each category.hobbies}}
+  
+    <div class="bg-danger text-white fs-4 m-2 p-2 rounded-pill">{{name}}</div>
+
+    {{/each}}
+  </ul>
+</div>

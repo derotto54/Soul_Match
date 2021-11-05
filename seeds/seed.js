@@ -19,13 +19,12 @@ const seedDatabase = async () => {
  
   for (userIndex in allUsers) {
     const user = allUsers[userIndex]
+    // give each user between 1-5 random hobbies
     const randomCounts =  Math.floor(Math.random()*5)+1
-    console.log(randomCounts)
     for(i=0; i<randomCounts; i++) {
       const randomHobbyIndex = Math.floor(Math.random()*hobbies.length)
       await user.addHobby(hobbies[randomHobbyIndex])
     }
-    
   }
 
   process.exit(0);

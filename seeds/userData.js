@@ -3,7 +3,7 @@ const faker = require("faker");
 
 const users = [];
 
-for (var i = 0; i < 100; i++) {  
+for (var i = 0; i < 10; i++) {  
     const fakee = {
         first_name: faker.name.firstName(),
         last_name: faker.name.lastName(),

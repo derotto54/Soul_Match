@@ -80,6 +80,7 @@ const categories = [
       { name: 'Cuddle with my dogs/cats/all type of pets'},
       { name: 'Witchcraft'},
       { name: 'Drinking'},
+    
   ]
   },
 ]
