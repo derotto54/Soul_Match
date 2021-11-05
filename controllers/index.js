@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Category, Hobby }= require('../models')
+const {Category, Hobby,User }= require('../models')
 
 
 // //HTML routes
@@ -25,5 +25,20 @@ console.log(category)
   res.render('hobbies', {category})
 })
 
+//api routes
+router.post('/api/savehobbies', async (req,res)=>{
+  const hobbyId = req.body.hobby
+  const foundHobby= await Hobby.findByPk(hobbyId)
+  let user = await User.findByPk(1,{include: Hobby})
+  await user.addHobby(foundHobby)
+  console.log(user)
+
+  // refresh the user since we just added a hobby
+  // and the old user doesn't have it since we loaded it before adding the new foundHobby
+  user = await User.findByPk(1,{include: Hobby})
+
+res.status(200).json(user.get({plain:true}))
+
+})
 
 module.exports = router;
