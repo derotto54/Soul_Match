@@ -16,6 +16,7 @@ for (var i = 0; i < 10; i++) {
     birthday: faker.date.past(),
     image: faker.internet.avatar(),
     relationshipStatus: getRandomInteger(1, 4),
+    
     kidCount: getRandomInteger(1, 4),
     wantKids: getRandomInteger(0, 1),
     religion: getRandomInteger(1, 3),
