@@ -26,8 +26,7 @@ for (var i = 0; i < 10; i++) {
     concert: getRandomInteger(0, 1),
     movie: getRandomInteger(0, 1),
     book: getRandomInteger(0, 1),
-
-  };
+};
 
   users.push(fakee)
 }
