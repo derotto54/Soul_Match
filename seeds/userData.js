@@ -7,7 +7,7 @@ function getRandomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 20; i++) {
   const fakee = {
     first_name: faker.name.firstName(),
     last_name: faker.name.lastName(),
