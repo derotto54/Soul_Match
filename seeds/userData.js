@@ -16,7 +16,6 @@ for (var i = 0; i < 10; i++) {
     birthday: faker.date.past(),
     image: faker.internet.avatar(),
     relationshipStatus: getRandomInteger(1, 4),
-    
     kidCount: getRandomInteger(1, 4),
     wantKids: getRandomInteger(0, 1),
     religion: getRandomInteger(1, 3),
@@ -27,8 +26,7 @@ for (var i = 0; i < 10; i++) {
     concert: getRandomInteger(0, 1),
     movie: getRandomInteger(0, 1),
     book: getRandomInteger(0, 1),
-
-  };
+};
 
   users.push(fakee)
 }
