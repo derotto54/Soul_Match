@@ -1,4 +1,5 @@
 const faker = require("faker");
+// const { Hobby } = require("../models");
 
 const users = [];
 
@@ -16,7 +17,7 @@ for (var i = 0; i < 10; i++) {
     image: faker.internet.avatar(),
     relationshipStatus: getRandomInteger(1, 4),
     haveKids: getRandomInteger(1, 4),
-    wantKids: getRandomInteger(1, 3),
+    wantKids: getRandomInteger(0, 1),
     religion: getRandomInteger(1, 3),
     smoke: getRandomInteger(1, 3),
     drink: getRandomInteger(1, 3),
@@ -24,6 +25,7 @@ for (var i = 0; i < 10; i++) {
 
   users.push(fakee)
 }
+
 
 
 // console.log(users)

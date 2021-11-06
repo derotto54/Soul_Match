@@ -1,21 +1,20 @@
 const User = require('./User');
-const Homebody = require('./Homebody');
-const Extrovert = require('./Extrovert');
+const Category= require('./Category');
+const Hobby= require('./Hobby');
+const UserHobby= require('./UserHobby')
 
-User.hasOne(Homebody, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
+Hobby.belongsTo(Category,{
+    foreignKey:'category_id',
+  })
 
+Category.hasMany(Hobby,{
+    foreignKey:'category_id',
+    onDelete: 'CASCADE',
 })
 
-User.hasOne(Extrovert, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE'
+User.belongsToMany(Hobby, { through: UserHobby})
+Hobby.belongsToMany(User, { through: UserHobby})
 
-})
-
-
-
-module.exports = { User, Homebody, Extrovert };
+module.exports = { User, Category, Hobby, UserHobby };
 
 
