@@ -1,29 +1,44 @@
+{{>navbar}}
+
 <div>
   <p class="fw-bold fs-2 mb-3">{{category.name}}</p>
 </div>
 <div class="row row-cols-3 d-flex flex-column flex-sm-row justify-content-md-center align-items-center">
   <ul>
-    {{#each category.hobbies}}
-  <div class="list-group-items flex-shrink-0 bg-danger text-white fs-4 m-2 p-2 rounded-pill" data-hobby-id="{{id}}">{{name}}
-  </div>
+    {{#each category.hobbies as |hobby|}}
+  <button class="btn btn-danger list-group-items flex-shrink-0 text-white fs-4 m-2 p-2 rounded-pill" data-hobby-id="{{id}}">{{name}}
+  </button>
     {{/each}}
   </ul>
 </div>
+<div>
+<a class=" text-black text-decoration-none fs-3 fw-bold" href="/mypage">NEXT</a>></button>
+</div>
+
+<style>
+  .selected {
+    background:#8f1823 !important;
+
+  }
+</style>
+
+
 <script>
   const listItem= document.getElementsByClassName('list-group-items')
-  
   for (var i=0; i<listItem.length; i++){
-    const id = listItem[i].getAttribute("data-hobby-id")
-    listItem[i].addEventListener('click',()=>{
-      console.log(id)
 
-      fetch('/api/savehobbies',{
+    const id = listItem[i].getAttribute("data-hobby-id")
+    listItem[i].addEventListener('click',(e)=>{
+     e.target.classList.add('selected')
+
+
+    fetch('/api/users/savehobbies',{
         method:'POST',
         headers:{
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          hobby: id
+          hobby: id,
         })
         
       })

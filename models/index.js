@@ -2,6 +2,7 @@ const User = require('./User');
 const Category= require('./Category');
 const Hobby= require('./Hobby');
 const UserHobby= require('./UserHobby')
+const UserLike = require('./UserLike')
 
 Hobby.belongsTo(Category,{
     foreignKey:'category_id',
@@ -15,6 +16,6 @@ Category.hasMany(Hobby,{
 User.belongsToMany(Hobby, { through: UserHobby})
 Hobby.belongsToMany(User, { through: UserHobby})
 
-module.exports = { User, Category, Hobby, UserHobby };
+module.exports = { User, Category, Hobby, UserHobby, UserLike };
 
 

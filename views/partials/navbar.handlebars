@@ -1,8 +1,30 @@
-<div class="d-flex flex-column flex-md-row align-items-center ">
-        <h2 class ="mx-3 fs-4">Likes</h2>
-        <h2 class="fs-4">Matches</h2>
-      </div>
-      <div class="d-flex fs-4 flex-column flex-md-row align-items-center">
-        <h2 class ="mx-3 fs-4">Me</h2>
-        <h2 class="fs-4">Sign out</h2>
-      </div>
+<nav class="d-flex  flex-column flex-md-row justify-content-md-between text-danger align-items-center">
+  <div class="title d-flex fw-bold ">
+    <h2>Soul Match</h2>
+  </div>
+  <div class="d-flex flex-row">
+    <h4 id="viewSingleBtn"class="btn me-4 fs-3">
+      <a class="text-danger text-decoration-none" href ="/people">Find Singles</a>
+    </h4>
+    <h4 id="pageBtn"class="btn me-4 text-danger fs-3"> 
+      <a class="text-danger text-decoration-none" href ="/mypage">My Page</a>
+    </h4>
+    <!-- If the user is logged in, show a logout button -->
+    {{#if session.loggedIn}}
+    <h4 id="logout" class="btn text-danger fs-3">Log Out</h4>
+    {{else}}
+    <!-- Otherwise, show a link to login -->
+    <a class ="btn text-danger fs-3" href="/login">Login</a>
+    {{/if}}
+    
+ 
+  </div>
+</nav>
+
+
+
+{{#if session.loggedIn}}
+<script src="./js/logout.js"> </script>
+
+
+{{/if}}
