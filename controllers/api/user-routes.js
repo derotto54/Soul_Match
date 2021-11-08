@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User,Hobby } = require('../../models');
+const { User,Hobby, UserHobby } = require('../../models');
 const faker = require("faker");
 const {withAuth,withoutAuth }= require('../../utils/auth')
 
@@ -91,7 +91,7 @@ router.post('/setupacc', async (req,res)=>{
   let user = await User.findByPk(userId,{include: Hobby})
   await user.addHobby(foundHobby)
 
-  // refresh the user since we just added a hobby
+  // refresh the user since just added a hobby
   // and the old user doesn't have it since loaded it before adding the new foundHobby
   user = await User.findByPk(1,{include: Hobby})
 
@@ -105,6 +105,18 @@ router.post('/add-story',async (req,res)=>{
   currentUser.story= story
   await currentUser.save()
 res.status(200).send('Story added')
+})
+router.delete('/delete-hobby', async(req,res)=>{
+  const userId = req.session.userId
+  await UserHobby.destroy({
+    where:{
+     userId,
+     hobbyId: req.body.id
+    }
+  })
+  let user = await User.findByPk(userId,{include: Hobby})
+  
+  res.status(200).json(user.get({plain:true}))
 })
  
  module.exports = router;

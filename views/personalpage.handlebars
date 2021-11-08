@@ -11,9 +11,8 @@
       <p class="fw-bold text-black">What make me the most happiest</p>
     </div>
     {{#each user.hobbies}}
-    <div class="bg-warning rounded-pill my-2 px-4 py-2 mb-3">{{name}}</div>
+    <div class="btn hobby bg-warning rounded-pill my-2 px-4 py-2 mb-3" data-hobby-id="{{id}}">{{name}}</div>
     {{/each}}
-    
     <div>
       <p class="fw-bold text-black">Something about me</p>
       <form id="add-post">
@@ -28,7 +27,9 @@
 <script>
   const form = document.getElementById('add-post')
   const storyInput = document.querySelector('.story')
-  console.log(storyInput)
+ 
+
+
   form.addEventListener('submit', e =>{
   e.preventDefault()
   const data = {
@@ -45,4 +46,30 @@
     
       .catch(err => console.log(err))
   })
+  
+  //delete hobby
+  const hobbyElements= document.getElementsByClassName('hobby')
+  for (var i=0; i<hobbyElements.length; i++){
+    const id = hobbyElements[i].getAttribute("data-hobby-id")
+    hobbyElements[i].addEventListener('click',(e)=>{
+      fetch('/api/users/delete-hobby',{
+        method:'DELETE',
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          id: id,
+        })
+      })
+      .then(response => {
+        e.target.remove()
+
+      })
+    })
+    
+  }
+
+
+
+
  </script>
