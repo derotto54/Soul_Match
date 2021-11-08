@@ -1,8 +1,20 @@
-<div class ="text-danger fs-2 ">
-      <p class ="fw-bold">you are not here to make friends</p>
-      <p class ="fs-5 text-black">but to find love and frienship in the same person</p>
+{{>header}}
+<div class =" d-flex flex-column align-items-center text-danger justify-content-md-center fs-2 ">
+  <p class ="fw-bold">you are not here to make friends</p>
+  <p class ="fs-5 text-black">but to find love and frienship in the same person</p>
+ 
+  <button id="signup"class="w-25 bg-danger rounded-pill fw-bold fs-2 text-white text-decoration-none my-2">Sign up</button>
+  <button id="signin" class="w-25 bg-danger rounded-pill fw-bold fs-2 text-white text-decoration-none my-2">Sign In</button>
+</div>
+<script>
+  document.getElementById('signup').addEventListener('click',()=>{
+    window.location.replace('/setupacc')
+  });
 
-      <button type="button" class="btn btn-danger badge bg-danger text-wrap rounded-pill "><a class ="text-white text-decoration-none" href="/setupacc">Create Account</a></button>
-    </div>
-     <!--  <button type="button" id="createAcct" class="btn btn-danger badge bg-danger text-wrap rounded-pill"><a class="createAcct"  href="/setupAcc">Create Account</a></button>
-    </div> -->
+  document.getElementById('signin').addEventListener('click',()=>{
+    window.location.replace('/login')
+  })
+
+</script>
+    
+    

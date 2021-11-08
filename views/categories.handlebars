@@ -1,8 +1,10 @@
+{{>navbar}}
 <div>
+  {{#if loggedIn}}
   <p class="fw-bold fs-2 mb-5">Let's talk about you</p>
 </div>
 <div class="row row-cols-3 d-flex flex-column flex-md-row justify-content-md-center align-items-center">
-
+ 
   {{#each categories}}
   
   <div class="bg-danger text-white p-3 rounded-pill my-2">
@@ -13,5 +15,7 @@
     </h2>
   </div>
 {{/each}}
+{{/if}}
 </div>
+
     

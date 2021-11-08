@@ -39,6 +39,9 @@ User.init(
     image: {
       type: DataTypes.STRING,
     },
+    story: {
+      type: DataTypes.TEXT
+    }
     
   },
   {

@@ -1,24 +1,34 @@
-const loginFormHandler = async (event) => {
-  event.preventDefault();
+const logInBtn = document.getElementById('logInBtn')
+const emailInput = document.getElementById('email-login')
+const passwordInput =  document.getElementById('password-login')
 
-  const email = document.querySelector('#email-login').value.trim();
-  const password = document.querySelector('#password-login').value.trim();
 
-  if (email && password) {
+logInBtn.addEventListener('click', async (e)=>{
+    e.preventDefault()
+
+    const userLogin = {
+      email:emailInput.value.trim(),
+      password:passwordInput.value.trim()
+    }
+    if (userLogin.email && userLogin.password) {
     const response = await fetch('/api/users/login', {
       method: 'POST',
-      body: JSON.stringify({ email, password }),
-      headers: { 'Content-Type': 'application/json' },
-    });
+      headers: {
+        'Content-Type': 'application/json'
+      },
+       body: JSON.stringify(userLogin)
+    })
 
-    if (response.ok) {
-      document.location.replace('/');
-    } else {
-      alert('Failed to log in');
+    const data = await response.json()
+    console.log(data)
+    if(data.user){
+
+    window.location.replace('/people')
+    } else{
+      alert('Incorrect email or password. Please try again!')
+      }
     }
-  }
-};
+  })
 
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+  //setup account
+  

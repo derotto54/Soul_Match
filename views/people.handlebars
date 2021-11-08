@@ -1,0 +1,33 @@
+{{>navbar}}
+<div class="container d-flex flex-column flex-md-row justify-content-lg-center align-items-center rounded bg-danger text-white bg-opacity-50 py-2 fs-5">
+  <div class="col-4 d-flex flex-column align-items-center mb-3">
+    <div class="m-3"><img src="{{user.image}}" alt="{{user.name}}" width= "200" height="250"></div>
+    {{>chooseBtn}}
+  </div>
+
+  <div class="col-8 d-flex flex-column align-items-center mb-3">
+    <div id ="nameBtn" style="cursor: pointer;"><h2>{{user.name}}</h2></div>
+    <div>
+      <p class="fw-bold text-black">What make me the most happiest</p>
+    </div>
+    {{#each user.hobbies}}
+    <div class="bg-warning rounded-pill my-2 px-4 py-2 mb-3">{{name}}</div>
+    {{/each}}
+    
+    <div id="story" class="d-none">
+      <p class="fw-bold text-black">Something about me</p>
+      <p>{{user.story}}</p>
+    </div>
+  </div>
+   
+</div>
+  
+<script>
+  document.getElementById('generateNextBtn').addEventListener('click',()=>{
+    window.location.replace('/people')
+  })
+  document.getElementById('nameBtn').addEventListener('click', ()=>{
+    document.getElementById('story').classList.remove('d-none')
+  })
+</script>
+
