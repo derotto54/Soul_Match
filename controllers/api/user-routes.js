@@ -98,5 +98,13 @@ router.post('/setupacc', async (req,res)=>{
 res.status(200).json(user.get({plain:true}))
 
 })
+router.post('/add-story',async (req,res)=>{
+  const userId = req.session.userId
+  const currentUser= await User.findByPk(userId)
+  const story= req.body.story
+  currentUser.story= story
+  await currentUser.save()
+res.status(200).send('Story added')
+})
  
  module.exports = router;

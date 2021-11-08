@@ -7,12 +7,17 @@ const sequelize = require('../config/connection');
 
 router.get('/',withoutAuth,(req,res) =>res.render('index'))
 router.get('/setupacc',withoutAuth,(req,res) =>res.render('setupAcc'))
-router.get('/login',withoutAuth,(req,res) =>res.render('login'))
-//get curent login user's data
-router.get('/mypage', withAuth , (req,res)=>res.render('personalpage',{
-  loggedIn: req.session.loggedIn
-}))
+router.get('/login',withoutAuth, (req,res) =>res.render('login'))
 
+//GET curent login user's data
+router.get('/mypage', withAuth , async (req,res) =>{
+  const user = await User.findByPk(req.session.userId, {include:Hobby})
+  const serializeUser= user.get({plain:true})
+  
+  res.render('personalpage',{
+    user:serializeUser,
+  })
+})
 
 //GET all categories
 router.get('/categories',withAuth, async (req,res) =>{
@@ -22,6 +27,7 @@ router.get('/categories',withAuth, async (req,res) =>{
     categories,
     loggedIn: req.session.loggedIn})
 })
+
 //GET all hobbies belongs to that specific gallery
 router.get('/categories/:id', withAuth, async (req,res)=>{
   const user = await User.findByPk(req.session.userId, {include: Hobby})
@@ -35,7 +41,7 @@ router.get('/categories/:id', withAuth, async (req,res)=>{
   console.log(category, user)
 })
 
-//get one user for homepage /people
+//GET one user for homepage /people
 
 router.get('/people',withAuth, async (req,res)=> {
   const user = await User.findOne({
