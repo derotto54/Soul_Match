@@ -29,6 +29,14 @@ User.init(
         isEmail: true,
       },  
     },
+    my_gender: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    searching_gender: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
