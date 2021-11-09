@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Hobby extends Model{}
+class Hobby extends Model { }
 Hobby.init(
   {
     id: {
@@ -14,7 +14,7 @@ Hobby.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-  }, 
+  },
   {
     sequelize,
     timestamps: false,
