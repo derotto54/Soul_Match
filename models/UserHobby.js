@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class UserHobby extends Model { }
 
-UserHobby.init({},
+UserHobby.init(  { },
   {
     sequelize,
     timestamps: false,
