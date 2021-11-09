@@ -11,12 +11,12 @@
       <p class="fw-bold text-black">What make me the most happiest</p>
     </div>
     {{#each user.hobbies}}
-    <div class="btn hobby bg-warning rounded-pill my-2 px-4 py-2 mb-3" data-hobby-id="{{id}}">{{name}}</div>
+    <div class="btn hobby bg-warning text-white rounded-pill my-2 px-4 py-2 mb-3" data-hobby-id="{{id}}">{{name}}</div>
     {{/each}}
     <div>
       <p class="fw-bold text-black">Something about me</p>
       <form id="add-post">
-        <textarea class="story form-control mb-2" rows="5">{{user.story}}</textarea>
+        <textarea class="story form-control mb-2 text-white fw-bold fs-5 bg-transparent border-0" rows="5">{{user.story}}</textarea>
         <button type="submit" class="btn btn btn-danger rounded-pill text-white">Save</button>
         </div>
       </form>
@@ -25,11 +25,10 @@
 </div>
 
 <script>
+  //add hobby for current login user
   const form = document.getElementById('add-post')
   const storyInput = document.querySelector('.story')
  
-
-
   form.addEventListener('submit', e =>{
   e.preventDefault()
   const data = {
@@ -69,7 +68,4 @@
     
   }
 
-
-
-
- </script>
+</script>
