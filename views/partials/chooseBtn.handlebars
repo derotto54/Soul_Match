@@ -1,4 +1,22 @@
 <div class="d-flex flex-column flex-lg-row justify-content-md-center align-items-center mt-2">
   <button id="generateNextBtn"class="bg-danger text-black rounded-pill p-2 my-2 px-4 mx-2">Opps Sorry :(</button>
-  <button id="likeBtn"class="bg-success text-black rounded-pill px-4 p-2">It feels right :)</button>
+  <button id="likeBtn" class="bg-success text-black rounded-pill px-4 p-2" data-user2Id="{{user.id}}">It feels right :)</button>
 </div>
+
+
+<script>
+  const likeBtn =document.getElementById('likeBtn')
+  likeBtn.addEventListener('click',()=>{
+   {{!-- fetch('/api/add-likes',{
+     method:'POST',
+     headers:{
+       'Content-Type': 'application/json'
+     },
+     
+   }
+
+   }) --}}
+  })
+  console.log(likeBtn.getAttribute("data-user2Id"))
+
+</script>
