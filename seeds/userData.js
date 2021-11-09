@@ -9,6 +9,7 @@ function getRandomInteger(min, max) {
 }
 for (var i = 0; i < 20; i++) {
   const fakee = {
+    name: faker.name.findName(),
     first_name: faker.name.firstName(),
     last_name: faker.name.lastName(),
     email: faker.internet.email(),
