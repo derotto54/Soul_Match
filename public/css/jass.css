@@ -1084,6 +1084,11 @@ a:hover {
   background-color: #31a9e1;
 }
 
+#signUpBtn{
+background-color: #aeaeae !important;
+color: #6D0839;
+}
+
 .card {
   border: 1px solid #1a1a1a;
   margin-bottom: 1rem;
@@ -1135,6 +1140,28 @@ form select {
   background-position-x: 98%;
   background-position-y: 50%;
 }
+
+#viewSingleBtn, #pageBtn, #logout, #login {
+  margin-bottom: 10px;
+}
+
+#name, #email-login, #password-login {
+  background-color: white;
+  width: 50%;
+  margin: 0px 50% 0px 50%;
+}
+
+#email-Login, #password-Login {
+  background-color: white !important;
+  width: 50%;
+  margin: 0px 50% 0px 50%;
+}
+
+#logInBtn{
+  background-color: #aeaeae !important;
+color: #6D0839;
+}
+
 
 form label,
 form .form-label {
