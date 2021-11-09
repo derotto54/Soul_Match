@@ -16,18 +16,11 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    first_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    last_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    birthday: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
+  
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -35,6 +28,14 @@ User.init(
       validate: {
         isEmail: true,
       },  
+    },
+    my_gender: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    searching_gender: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     password: {
       type: DataTypes.STRING,
@@ -46,6 +47,9 @@ User.init(
     image: {
       type: DataTypes.STRING,
     },
+    story: {
+      type: DataTypes.TEXT
+    }
     
   },
   {

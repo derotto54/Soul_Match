@@ -1,24 +1,19 @@
-{{>navbar}}
+{{>header}}
 <form class="form login-form d-flex flex-column bg-danger text-white bg-opacity-50 py-2 fs-5">
   <div class="">
-    <p>Let's setup an account with us</p>
+    <p>Let's Sign In</p>
   </div>
-  <div class="form-group">
-    <label for="name">What's your name?</label>
-    <input class="form-input border-top-0 border-start-0 border-end-0 bg-transparent p-1" type="text" id="name" />
-  </div>
-  
   <div class="form-group">
     <label for="name">Email:</label>
     <input class="form-input border-top-0 border-start-0 border-end-0 bg-transparent p-1" type="text" id="email-login" />
   </div>
-  <div class="form-group">
-    <label for="name">Password</label>
+  <div class="form-group mb-3">
+    <label for="password-login">Password:</label>
     <input class="form-input border-top-0 border-start-0 border-end-0 bg-transparent p-1" type="password" id="password-login" />
   </div>
   <div>
-    <button id="signUpBtn" class="btn btn-danger badge bg-danger text-wrap rounded-pill mb-3">That's It</button>
+    <button id="logInBtn" class="btn btn-danger badge bg-danger text-wrap rounded-pill mb-3">Sign In</button>
   </div>
-
 </form>
-<script src="./js/setupacc.js"></script>
+
+<script src="./js/login.js"></script>

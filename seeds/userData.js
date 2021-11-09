@@ -1,11 +1,9 @@
 const faker = require("faker");
 // const { Hobby } = require("../models");
 
-const users = [];
+const users= [];
 
-function getRandomInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+
 
 for (var i = 0; i < 20; i++) {
   const fakee = {
@@ -26,6 +24,8 @@ for (var i = 0; i < 20; i++) {
     concert: getRandomInteger(0, 1),
     movie: getRandomInteger(0, 1),
     book: getRandomInteger(0, 1),
+    story:faker.lorem.paragraph()
+
 };
 
   users.push(fakee)
