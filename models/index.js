@@ -16,6 +16,8 @@ Category.hasMany(Hobby, {
 User.belongsToMany(Hobby, { through: UserHobby })
 Hobby.belongsToMany(User, { through: UserHobby })
 
+User.belongsToMany(User,{ through: UserLike, as:'likes'})
+
 module.exports = { User, Category, Hobby, UserHobby, UserLike };
 
 

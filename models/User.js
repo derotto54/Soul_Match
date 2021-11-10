@@ -16,7 +16,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    first_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -38,11 +38,12 @@ User.init(
     },
     image: {
       type: DataTypes.STRING,
-    },
+    }
+    /*,
     story: {
       type: DataTypes.TEXT
     }
-
+    */
   },
   {
     hooks: {

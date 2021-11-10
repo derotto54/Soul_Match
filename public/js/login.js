@@ -1,6 +1,6 @@
 const logInBtn = document.getElementById('logInBtn')
-const emailInput = document.getElementById('email-login')
-const passwordInput = document.getElementById('password-login')
+const emailInput = document.getElementById('email-Login')
+const passwordInput = document.getElementById('password-Login')
 
 
 logInBtn.addEventListener('click', async (e) => {
@@ -11,6 +11,7 @@ logInBtn.addEventListener('click', async (e) => {
     password: passwordInput.value.trim()
   }
   if (userLogin.email && userLogin.password) {
+
     const response = await fetch('/api/users/login', {
       method: 'POST',
       headers: {

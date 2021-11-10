@@ -4,6 +4,7 @@ const faker = require("faker");
 const { withAuth, withoutAuth } = require('../../utils/auth')
 
 //CREATE a new user
+
 //api/users/setupacc
 router.post('/setupacc', async (req, res) => {
 
@@ -94,7 +95,7 @@ router.post('/savehobbies', async (req, res) => {
 
   // refresh the user since just added a hobby
   // and the old user doesn't have it since loaded it before adding the new foundHobby
-  user = await User.findByPk(1, { include: Hobby })
+  user = await User.findByPk(userId, { include: Hobby })
 
   res.status(200).json(user.get({ plain: true }))
 
@@ -118,6 +119,28 @@ router.delete('/delete-hobby', async (req, res) => {
   let user = await User.findByPk(userId, { include: Hobby })
 
   res.status(200).json(user.get({ plain: true }))
+})
+//POST routes UserLikes
+router.post('/add-likes', async (req,res)=>{
+  const userId1 =  req.session.userId
+  const user1 = await User.findByPk(userId1)
+
+  const userId2 = req.body.userId2
+  const foundUserLiked = await User.findByPk(userId2)
+
+  console.log(user1)
+  await user1.addLike(foundUserLiked)
+  
+
+  // refresh the user since just added a hobby
+  // and the old user doesn't have it since loaded it before adding the new foundHobby
+  user = await User.findByPk(userId1)
+
+  res.status(200).json(user.get({ plain: true }))
+
+
+
+
 })
 
 module.exports = router;

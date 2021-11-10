@@ -1151,10 +1151,14 @@ form select {
   margin: 0px 50% 0px 50%;
 }
 
-#email-Login, #password-Login {
+.form-group-to-center{
+  text-align: center;
+}
+
+.centered-form-input {
   background-color: white !important;
-  width: 50%;
-  margin: 0px 50% 0px 50%;
+  width: 50% !important;
+  margin: 5px auto !important;
 }
 
 #logInBtn{

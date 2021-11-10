@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Category, Hobby, User } = require('../models')
+const { Category, Hobby, User, UserLike } = require('../models')
 const { withAuth, withoutAuth } = require('../utils/auth')
 const sequelize = require('../config/connection');
 
@@ -11,8 +11,12 @@ router.get('/login', withoutAuth, (req, res) => res.render('login'))
 
 //GET curent login user's data
 router.get('/mypage', withAuth, async (req, res) => {
-  const user = await User.findByPk(req.session.userId, { include: Hobby })
+  const user = await User.findByPk(req.session.userId, { include: [Hobby,{
+    model:User,
+    as:'likes',
+  }]})
   const serializeUser = user.get({ plain: true })
+  console.log(serializeUser)
 
   res.render('personalpage', {
     user: serializeUser,
